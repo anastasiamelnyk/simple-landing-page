@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width initial-scale=1.0">
@@ -8,21 +8,24 @@
 </head>
 <body class="page">
   <header class="header">
-    <p class="header__logo-wrapper">
-      <a href="#" class="header__logo">
-        <span>Logo</span>
-        <span>Here</span>
-      </a>
-    </p>
-    <nav class="header__nav">
-      <ul class="header__main-nav main-nav">
-        <li class="main-nav__item"><a href="#" class="main-nav__link">Home</a></li>
-        <li class="main-nav__item"><a href="#" class="main-nav__link">About</a></li>
-        <li class="main-nav__item"><a href="#" class="main-nav__link">Products</a></li>
-        <li class="main-nav__item"><a href="#" class="main-nav__link">Contact</a></li>
-      </ul>
-    </nav>
-    <p class="header__slogan">
+    <div class="header__wrapper">
+      <div class="header__nav-container container">
+        <a href="#" class="header__logo">
+          <span>Logo</span>
+          <span>Here</span>
+        </a>
+        <nav class="header__nav">
+          <button class="header__nav-button" aria-label="Toggle menu"></button>
+          <ul class="header__main-nav main-nav appear">
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Home</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">About</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Products</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <p class="header__slogan container">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt!
     </p>
   </header>
@@ -30,6 +33,6 @@
 
 
 
-  <script src="js/index.min.js"></script>
+  <script src="js/script.min.js"></script>
 </body>
 </html>

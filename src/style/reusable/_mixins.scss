@@ -1,0 +1,30 @@
+//resets
+@mixin geometry-reset {
+  margin: 0;
+  padding: 0;
+}
+@mixin list-reset {
+  @include geometry-reset;
+  list-style-type: none;
+}
+@mixin link-reset {
+  text-decoration: none;
+}
+@mixin button-reset {
+  @include geometry-reset;
+  background-color: transparent;
+  border: none;
+}
+
+//to include a pseudo-element with absolute position
+@mixin pseudo-el ($top: 0, $left: 0) {
+  content: '';
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin square-box ($size) {
+  width: $size;
+  height: $size;
+}

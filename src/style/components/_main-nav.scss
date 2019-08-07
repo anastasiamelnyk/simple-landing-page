@@ -1,0 +1,63 @@
+.main-nav {
+  @include list-reset();
+  display: flex;
+}
+
+.main-nav__item {
+  margin-right: 40px;
+  &:last-child { margin-right: 0; }
+}
+
+.main-nav__link {
+  display: inline-block;
+  @include link-reset();
+  padding: 20px 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: inherit;
+  transition: color .3s;
+  &:hover {
+    color: map-get($colors, cta-color);
+  }
+  &:active {
+    color: lighten(map-get($font-colors, basic), 15%);
+  }
+}
+
+@media (max-width: map-get($breaks, l)) {
+  .main-nav__item { margin-right: 30px; }
+}
+
+@media (max-width: map-get($breaks, m)) {
+  .main-nav {
+    width: 100%;
+    background-color: map-get($colors, white);
+    text-align: center;
+  }
+  .main-nav__item {
+    margin-right: 0;
+    &:last-child { margin-bottom: 10px; }
+  }
+  .main-nav__link { padding: 10px 0; }
+
+  //animation for mobile nav appearing
+  @keyframes appear {
+    from {
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+    45% {
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .appear {
+    animation-name: appear;
+    animation-duration: .7s;
+  }
+}
+
+

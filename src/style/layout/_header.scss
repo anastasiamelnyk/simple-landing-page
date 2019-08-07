@@ -1,0 +1,120 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include geometry-reset();
+  background-image: url('../images/header-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header__wrapper {
+  width: 100%;
+  background-color: map-get($colors, white);
+}
+
+.header__nav-container {
+  height: 128px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  @include link-reset();
+  font-size: 37px;
+  line-height: 61px;
+  font-weight: 1000;
+  display: flex;
+  align-items: center;
+  span:last-child { color: map-get($colors, cta-color); }
+  &::before {
+    content: '';
+    @include square-box(30px);
+    margin-right: 20px;
+    border-radius: 100%;
+    background-color: map-get($colors, cta-color);
+  }
+}
+
+.header__nav-button { display: none; }
+
+.header__slogan {
+  font-size: 40px;
+  line-height: 84px;
+  font-weight: 1000;
+  text-align: center;
+  color: map-get($colors, white);
+  position: relative;
+  top: 41%;
+  transform: translateY(-50%);
+}
+
+
+@media (max-width: map-get($breaks, l)) {
+  .header__logo {
+    font-size: 35px;
+    &::before {
+      @include square-box(25px);
+      margin-right: 15px;
+    }
+  }
+  .header__slogan {
+    font-size: 37px;
+    line-height: 75px;
+  }
+}
+
+@media (max-width: map-get($breaks, m)) {
+  .header__nav-container {
+    height: 90px;
+    position: relative;
+    z-index: 2;
+  }
+  .header__logo { font-size: 30px; }
+  .header__nav-button {
+    display: block;
+    @include button-reset();
+    width: 25px;
+    height: 17px;
+    position: relative;
+    transition: background .3s;
+    &::before,
+    &::after {
+      @include pseudo-el ($top: 7px, $left: 0);
+      height: 3px;
+      width: 25px;
+      border-radius: 3px;
+      transition: background .3s;
+    }
+    &::before { transform: rotate(45deg); }
+    &::after { transform: rotate(-45deg); }
+    &.mob-nav-closed {
+      background-image: repeating-linear-gradient(
+        map-get($font-colors, basic) 0px, map-get($font-colors, basic) 3px,
+        map-get($colors, white) 3px, map-get($colors, white) 7px,
+        map-get($font-colors, basic) 7px, map-get($font-colors, basic) 10px,
+        map-get($colors, white) 10px, map-get($colors, white) 14px,
+        map-get($font-colors, basic) 14px, map-get($font-colors, basic) 17px);
+    }
+    &.mob-nav-opened {
+      &::before,
+      &::after {
+        background-color: map-get($font-colors, basic);
+      }
+    }
+  }
+  .header__main-nav.mob-nav-closed { display: none; }
+  .header__main-nav.mob-nav-opened,
+  .no-js .header__main-nav {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 90px;
+  }
+  .header__slogan {
+    font-size: 27px;
+    line-height: 45px;
+  }
+}

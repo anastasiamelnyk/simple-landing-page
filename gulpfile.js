@@ -46,13 +46,13 @@ gulp.task('jsConcat', () => {
 });
 
 gulp.task('jsMin', () => {
-  return gulp.src('prod/js/index.js')
+  return gulp.src('src/js/script.js')
   .pipe(babel({
     presets: ['@babel/env']
   }))
   .pipe(gulp.dest('prod/js'))
   .pipe(jsMinBabel())
-  .pipe(rename('index.min.js'))
+  .pipe(rename('script.min.js'))
   .pipe(gulp.dest('prod/js'));
 });
 
@@ -109,8 +109,8 @@ gulp.task('prod', gulp.series(
   'cleanProd', gulp.parallel(
     'copy',
     'style',
-    'jsMin'
-    //'images',
+    'jsMin',
+    'images',
     'html')));
 
 
@@ -121,7 +121,7 @@ gulp.task('default', gulp.series('prod', () => {
   });
   gulp.watch('src/style/**/*.scss', gulp.series('style'));
   gulp.watch('src/index.html', gulp.series('html'));
-  gulp.watch('src/js/**.js', gulp.series('js'));
+  gulp.watch('src/js/**.js', gulp.series('jsMin'));
 }));
 
 //missing only stuff for svg sprite
