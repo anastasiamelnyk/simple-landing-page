@@ -56,7 +56,8 @@
   }
   .appear {
     animation-name: appear;
-    animation-duration: .7s;
+    animation-duration: 1s;
+    animation-delay: -.4s;
   }
 }
 

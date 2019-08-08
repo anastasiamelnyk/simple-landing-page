@@ -1,0 +1,23 @@
+.button {
+  @include button-reset();
+  @include link-reset();
+  display: inline-block;
+  border-radius: 20px;
+  font-family: $lato;
+}
+
+.button--small {
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  color: map-get($font-colors, basic);
+  border: 1px solid map-get($colors, cta-color);
+  transition: color .3s, background-color .3s;
+  &:hover {
+    background-color: map-get($colors, cta-color);
+    color: map-get($colors, white);
+  }
+  &:active {
+    background-color: desaturate(map-get($colors, cta-color), 50%);
+  }
+}

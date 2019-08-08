@@ -20,11 +20,13 @@
 }
 
 //to include a pseudo-element with absolute position
-@mixin pseudo-el ($top: 0, $left: 0) {
+@mixin pseudo-el ($top: null, $left: null, $bottom: null, $right: null) {
   content: '';
   position: absolute;
   top: $top;
   left: $left;
+  bottom: $bottom;
+  right: $right;
 }
 
 @mixin square-box ($size) {

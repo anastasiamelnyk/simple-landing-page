@@ -7,14 +7,23 @@
   padding-bottom: 15px;
   position: relative;
   &::after {
-    @include pseudo-el ($top: null, $left: 55px);
-    right: 55px;
-    bottom: 0;
+    @include pseudo-el ($top: null, $left: 55px, $bottom: 0, $right: 55px);
     height: 1px;
     background-color: map-get($colors, cta-color);
   }
   &--dark { color: map-get($font-colors, heading-dark); }
   &--light { color: map-get($colors, white); }
+}
+
+.heading--minor {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 800;
+  color: map-get($colors, cta-color);
+  &::after {
+    left: 40px;
+    right: 40px;
+  }
 }
 
 .heading__follower {
@@ -37,5 +46,9 @@
   .heading {
     font-size: 25px;
     line-height: 33px;
+  }
+  .heading--minor {
+    font-size: 25px;
+    padding-bottom: 5px;
   }
 }

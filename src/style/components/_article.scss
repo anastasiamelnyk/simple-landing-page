@@ -1,0 +1,42 @@
+.article {
+  &:hover {
+    .article__img-wrapper {
+      border-color: map-get($colors, cta-color);
+    }
+    .article__button {
+      background-color: map-get($colors, cta-color);
+      color: map-get($colors, white);
+    }
+  }
+}
+
+.article__img-wrapper {
+  @include square-box(182px);
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  transition: border-color .3s;
+}
+
+.article__text {
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+@media (max-width: map-get($breaks, m)) {
+  .article {
+    position: relative;
+    padding-bottom: 25px;
+    &::after {
+      @include pseudo-el ($top: null, $left: 50px, $bottom: 0, $right: 50px);
+      height: 1px;
+      background-color: map-get($font-colors, basic);
+      opacity: .5;
+    }
+    &:last-child::after { display: none; }
+  }
+  .article__img-wrapper { margin-bottom: 5px; }
+  .article__text { margin-bottom: 10px; }
+}
