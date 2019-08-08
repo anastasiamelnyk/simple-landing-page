@@ -1,0 +1,41 @@
+.heading {
+  @include geometry-reset();
+  @include heading-reset();
+  display: inline-block;
+  font-size: 38px;
+  line-height: 40px;
+  padding-bottom: 15px;
+  position: relative;
+  &::after {
+    @include pseudo-el ($top: null, $left: 55px);
+    right: 55px;
+    bottom: 0;
+    height: 1px;
+    background-color: map-get($colors, cta-color);
+  }
+  &--dark { color: map-get($font-colors, heading-dark); }
+  &--light { color: map-get($colors, white); }
+}
+
+.heading__follower {
+  @include geometry-reset();
+  font-size: 24px;
+  line-height: 30px;
+  &--dark { color: map-get($font-colors, heading-dark); }
+  &--light { color: map-get($font-colors, heading-follower-light); }
+}
+
+@media (max-width: map-get($breaks, l)) {
+  .heading {
+    font-size: 27px;
+    padding-bottom: 10px;
+  }
+  .heading__follower { font-size: 17px; }
+}
+
+@media (max-width: map-get($breaks, m)) {
+  .heading {
+    font-size: 25px;
+    line-height: 33px;
+  }
+}

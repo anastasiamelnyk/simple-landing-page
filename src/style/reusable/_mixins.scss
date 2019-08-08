@@ -15,6 +15,9 @@
   background-color: transparent;
   border: none;
 }
+@mixin heading-reset {
+  font-weight: normal;
+}
 
 //to include a pseudo-element with absolute position
 @mixin pseudo-el ($top: 0, $left: 0) {

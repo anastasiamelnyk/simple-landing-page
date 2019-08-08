@@ -1,0 +1,19 @@
+.link {
+  @include link-reset();
+  font-size: 20px;
+  color: map-get($colors, cta-color);
+  background-image: linear-gradient(map-get($colors, cta-color), map-get($colors, cta-color));
+  background-position: 0% 100%;
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition: color .3s, background-size .3s, background-image .3s;
+  &:hover { background-size: 100% 1px; }
+  &:active {
+    color: lighten(map-get($font-colors, basic), 15%);
+    background-image: linear-gradient(lighten(map-get($font-colors, basic), 15%), lighten(map-get($font-colors, basic), 15%));
+  }
+}
+
+@media (max-width: map-get($breaks, l)) {
+  .link { font-size: 17px; }
+}
