@@ -33,3 +33,10 @@
   width: $size;
   height: $size;
 }
+
+//to attach a bg covering the whole element
+@mixin bg-cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,26 @@
+.social-nav {
+  @include list-reset();
+  display: flex;
+}
+
+.social-nav__item {
+  margin-right: 25px;
+  &:last-child { margin-right: 0; }
+}
+
+.social-nav__link {
+  display: inline-block;
+  @include square-box(65px);
+  @include bg-cover();
+  transition: transform .3s, opacity .3s;
+  &--fb { background-image: url('../images/social-nav-fb.png'); }
+  &--twitter { background-image: url('../images/social-nav-twitter.png'); }
+  &--youtube { background-image: url('../images/social-nav-youtube.png'); }
+
+  &:hover { transform: scale(1.1); }
+  &:active { opacity: .7; }
+}
+
+@media (max-width: map-get($breaks, m)) {
+  .social-nav__link { @include square-box(50px); }
+}

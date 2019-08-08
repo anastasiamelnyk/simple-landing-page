@@ -61,4 +61,33 @@
   }
 }
 
-
+.main-nav--footer {
+  position: relative;
+  padding-top: 30px;
+  width: initial;
+  &::before {
+    @include pseudo-el ($top: 0, $left: 80px, $right: 80px);
+    height: 1px;
+    background-color: map-get($font-colors, dark);
+  }
+  .main-nav__item { margin-right: 0; }
+  .main-nav__link {
+    padding: 0 20px;
+    color: map-get($font-colors, dark);
+    &:hover {
+      color: darken(map-get($colors, cta-color), 10%);
+    }
+    &:active {
+      color: map-get($colors, cta-color);
+    }
+  }
+  @media (max-width: map-get($breaks, m)) {
+    background: transparent;
+    padding-top: 15px;
+    &::before { opacity: .7; }
+    .main-nav__link {
+      padding: 0 10px;
+      font-size: 13px;
+    }
+  }
+}
