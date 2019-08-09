@@ -5,8 +5,21 @@
   flex-direction: column;
   align-items: center;
   @include bg-cover();
+
   background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)),
+                    url('../images/footer-bg.webp');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)),
+                      url('../images/footer-bg-2x.webp');
+  }
+  .no-webp & {
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)),
                     url('../images/footer-bg.jpg');
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)),
+                        url('../images/footer-bg-2x.jpg');
+    }
+  }
 }
 
 .footer__slogan {
@@ -31,4 +44,8 @@
 
 @media (max-width: map-get($breaks, m)) {
   .footer__social-nav { margin-bottom: 20px; }
+  .footer__copy {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

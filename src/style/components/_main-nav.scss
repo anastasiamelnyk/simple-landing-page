@@ -11,16 +11,22 @@
 .main-nav__link {
   display: inline-block;
   @include link-reset();
-  padding: 20px 0;
+  padding: 15px 0;
   font-size: 18px;
   text-transform: uppercase;
   color: inherit;
-  transition: color .3s;
+  background-image: linear-gradient(map-get($colors, cta-color), map-get($colors, cta-color));
+  background-position: 0% 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition: color .3s, background-size .3s;
   &:hover {
     color: map-get($colors, cta-color);
+    background-size: 80% 2px;
   }
   &:active {
     color: lighten(map-get($font-colors, basic), 15%);
+    background: transparent;
   }
 }
 
@@ -64,7 +70,6 @@
 .main-nav--footer {
   position: relative;
   padding-top: 30px;
-  width: initial;
   &::before {
     @include pseudo-el ($top: 0, $left: 80px, $right: 80px);
     height: 1px;
@@ -76,12 +81,14 @@
     color: map-get($font-colors, dark);
     &:hover {
       color: darken(map-get($colors, cta-color), 10%);
+      background: transparent;
     }
     &:active {
       color: map-get($colors, cta-color);
     }
   }
   @media (max-width: map-get($breaks, m)) {
+    width: 295px;
     background: transparent;
     padding-top: 15px;
     &::before { opacity: .7; }

@@ -1,0 +1,12 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  //fix logo circle
+  .header__logo {
+    position: relative;
+    padding-left: 50px;
+    @media (max-width: map-get($breaks, l)) { padding-left: 40px; }
+    &::before {
+      @include pseudo-el ($top: 50%, $left: 0);
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -38,7 +38,7 @@ gulp.task('style', () => {
 
 //js tasks
 gulp.task('jsConcat', () => {
-  return gulp.src(['src/js/data.js', 'src/js/ui.js', 'src/js/controller.js'])
+  return gulp.src(['src/js/picturefill.min.js', 'src/js/modernizr-webp.js', 'src/js/script.js'])
   .pipe(maps.init())
   .pipe(concat('index.js'))
   .pipe(maps.write('./'))
@@ -46,13 +46,13 @@ gulp.task('jsConcat', () => {
 });
 
 gulp.task('jsMin', () => {
-  return gulp.src('src/js/script.js')
+  return gulp.src('prod/js/index.js')
   .pipe(babel({
     presets: ['@babel/env']
   }))
   .pipe(gulp.dest('prod/js'))
   .pipe(jsMinBabel())
-  .pipe(rename('script.min.js'))
+  .pipe(rename('index.min.js'))
   .pipe(gulp.dest('prod/js'));
 });
 
@@ -109,7 +109,7 @@ gulp.task('prod', gulp.series(
   'cleanProd', gulp.parallel(
     'copy',
     'style',
-    'jsMin',
+    'js',
     'images',
     'html')));
 
@@ -121,7 +121,7 @@ gulp.task('default', gulp.series('prod', () => {
   });
   gulp.watch('src/style/**/*.scss', gulp.series('style'));
   gulp.watch('src/index.html', gulp.series('html'));
-  gulp.watch('src/js/**.js', gulp.series('jsMin'));
+  gulp.watch('src/js/**.js', gulp.series('js'));
 }));
 
 //missing only stuff for svg sprite

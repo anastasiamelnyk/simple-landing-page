@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobNavBtn = document.querySelector('.header__nav-button');
   const mainNav = document.querySelector('.main-nav');
   const mobNavArr = [mobNavBtn, mainNav];
+  const docHeight = document.documentElement.clientHeight;
 
 
   //remove no-js class if js is on

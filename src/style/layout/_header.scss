@@ -3,8 +3,17 @@
   height: 100vh;
   position: relative;
   @include geometry-reset();
-  background-image: url('../images/header-bg.jpg');
   @include bg-cover();
+  background-image: url('../images/header-bg.webp');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url('../images/header-bg-2x.webp');
+  }
+  .no-webp & {
+    background-image: url('../images/header-bg.jpg');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url('../images/header-bg-2x.jpg');
+  }
+  }
 }
 
 .header__wrapper {
@@ -24,6 +33,7 @@
   font-size: 37px;
   line-height: 61px;
   font-weight: 1000;
+  color: map-get($font-colors, basic);
   display: flex;
   align-items: center;
   span:last-child { color: map-get($colors, cta-color); }

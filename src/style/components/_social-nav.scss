@@ -13,12 +13,47 @@
   @include square-box(65px);
   @include bg-cover();
   transition: transform .3s, opacity .3s;
-  &--fb { background-image: url('../images/social-nav-fb.png'); }
-  &--twitter { background-image: url('../images/social-nav-twitter.png'); }
-  &--youtube { background-image: url('../images/social-nav-youtube.png'); }
-
   &:hover { transform: scale(1.1); }
   &:active { opacity: .7; }
+}
+
+.social-nav__link--fb {
+  background-image: url('../images/social-nav-fb.webp');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url('../images/social-nav-fb-2x.webp');
+  }
+  .no-webp & {
+    background-image: url('../images/social-nav-fb.png');
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: url('../images/social-nav-fb-2x.png');
+    }
+  }
+}
+
+.social-nav__link--twitter {
+  background-image: url('../images/social-nav-twitter.webp');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url('../images/social-nav-twitter-2x.webp');
+  }
+  .no-webp & {
+    background-image: url('../images/social-nav-twitter.png');
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: url('../images/social-nav-twitter-2x.png');
+    }
+  }
+}
+
+.social-nav__link--youtube {
+  background-image: url('../images/social-nav-youtube.webp');
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url('../images/social-nav-youtube-2x.webp');
+  }
+  .no-webp & {
+    background-image: url('../images/social-nav-youtube.png');
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: url('../images/social-nav-youtube-2x.png');
+    }
+  }
 }
 
 @media (max-width: map-get($breaks, m)) {
