@@ -8,7 +8,6 @@ const maps = require('gulp-sourcemaps');
 const minCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const sync = require('browser-sync');
-const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const jsMinBabel = require('gulp-babel-minify');
 const img = require('gulp-imagemin');
@@ -35,28 +34,16 @@ gulp.task('style', () => {
   .pipe(sync.reload({stream:true}));
 });
 
-
-//js tasks
-gulp.task('jsConcat', () => {
-  return gulp.src(['src/js/picturefill.min.js', 'src/js/modernizr-webp.js', 'src/js/script.js'])
-  .pipe(maps.init())
-  .pipe(concat('index.js'))
-  .pipe(maps.write('./'))
-  .pipe(gulp.dest('prod/js'));
-});
-
 gulp.task('jsMin', () => {
-  return gulp.src('prod/js/index.js')
+  return gulp.src('src/js/script.js')
   .pipe(babel({
     presets: ['@babel/env']
   }))
   .pipe(gulp.dest('prod/js'))
   .pipe(jsMinBabel())
-  .pipe(rename('index.min.js'))
+  .pipe(rename('script.min.js'))
   .pipe(gulp.dest('prod/js'));
 });
-
-gulp.task('js', gulp.series('jsConcat', 'jsMin'));
 
 
 //image tasks
@@ -101,7 +88,7 @@ gulp.task('cleanProd', () => {
 });
 
 gulp.task('copy', () => {
-  return gulp.src('src/fonts/**', { base: 'src' })
+  return gulp.src(['src/fonts/**', 'src/js/modernizr-webp.js', 'src/js/picturefill.min.js'], { base: 'src' })
   .pipe(gulp.dest('prod'));
 });
 
@@ -109,7 +96,7 @@ gulp.task('prod', gulp.series(
   'cleanProd', gulp.parallel(
     'copy',
     'style',
-    'js',
+    'jsMin',
     'images',
     'html')));
 
@@ -121,8 +108,5 @@ gulp.task('default', gulp.series('prod', () => {
   });
   gulp.watch('src/style/**/*.scss', gulp.series('style'));
   gulp.watch('src/index.html', gulp.series('html'));
-  gulp.watch('src/js/**.js', gulp.series('js'));
+  gulp.watch('src/js/**.js', gulp.series('jsMin'));
 }));
-
-//missing only stuff for svg sprite
-//and including it to html

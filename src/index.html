@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="zxx" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/style.min.css">
   <script> document.createElement( "picture" ); </script>
-  <script src="js/index.min.js" async></script>
+  <script src="js/picturefill.min.js" async></script>
+  <script src="js/modernizr-webp.js" async></script>
   <title>Title</title>
 </head>
 <body class="page">
@@ -36,7 +37,7 @@
     <h1 class="visually-hidden">Main heading of a page</h1>
 
     <section class="section-2cols section-2cols--light container">
-      <article class="section-2cols__info">
+      <div class="section-2cols__info">
         <h2 class="heading heading--dark section-2cols__heading">Lorem ipsum dolor sit amet</h2>
         <p class="heading__follower heading__follower--dark section-2cols__slogan">Lorem ipsum dolor sit amet</p>
         <p class="section-2cols__text">
@@ -48,7 +49,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <a href="#" class="link section-2cols__link">You can learn more about the sample here.</a>
-      </article>
+      </div>
       <div class="section-2cols__img-wrapper">
         <picture>
           <source type="image/webp"
@@ -71,7 +72,7 @@
                  alt="Image description" class="section-2cols__image-2">
           </picture>
         </div>
-        <article class="section-2cols__info">
+        <div class="section-2cols__info">
           <h2 class="heading heading--light section-2cols__heading">Lorem ipsum dolor sit amet</h2>
           <p class="heading__follower heading__follower--light section-2cols__slogan">Lorem ipsum dolor sit amet</p>
           <p class="section-2cols__text">
@@ -83,7 +84,7 @@
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <a href="#" class="link section-2cols__link">You can learn more about the sample here.</a>
-        </article>
+        </div>
       </div>
     </section>
 
@@ -245,5 +246,7 @@
     </div>
     <p class="footer__copy">Copyright 2015 by <span class="footer__copy--bold">Company Name, Powered by Author Name</span></p>
   </footer>
+
+  <script src="js/script.min.js"></script>
 </body>
 </html>
